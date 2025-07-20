@@ -5,7 +5,7 @@
       const [products, setProducts] = useState([]);
 
       useEffect(() => {
-        fetch('http://localhost:5000/api/products') // Assumes your backend is serving from /api/products
+        fetch('http://54.147.55.16:5000/api/products') // Assumes your backend is serving from /api/products
           .then(res => res.json())
           .then(data => setProducts(data))
           .catch(err => console.error('Error fetching products:', err));

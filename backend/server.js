@@ -8,7 +8,7 @@ const Product = require('./models/Product'); // Adjust path if needed
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://basicsfootwear.s3-website-us-east-1.amazonaws.com' }));
 app.use(express.json());
 
 // Connect to MongoDB
