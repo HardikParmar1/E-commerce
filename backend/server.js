@@ -11,6 +11,7 @@ const app = express();
 app.use(cors({ origin: 'http://basicsfootwear.s3-website-us-east-1.amazonaws.com' }));
 app.use(express.json());
 
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
@@ -19,5 +20,14 @@ mongoose.connect(process.env.MONGO_URI)
 // Add the product API route
 app.use('/api/products', productRoutes); // 👈 mount it here
 
+const fs = require('fs');
+const logStream = fs.createWriteStream('./logs/server.log', { flags: 'a' });
+console.log = (...args) => {
+  logStream.write(`${new Date().toISOString()} - ${args.join(' ')}\n`);
+};
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
