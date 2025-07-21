@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => (
   <header>
-    <nav className="container">
+    <nav className="container header-nav">
       <div className="logo">ActiveGear Pro</div>
       <ul className="nav-links">
         <li><a href="#home">Home</a></li>
